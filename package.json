@@ -1,0 +1,24 @@
+{
+  "name": "empty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "eslint-config-ecollect-base": "^0.1.1",
+    "eslint-plugin-import": "^2.16.0"
+  },
+  "_moduleAliases": {
+    "lib": "./lib",
+    "oblak-data": "./oblak-data.js"
+  },
+  "dependencies": {
+    "oblak": "0.0.955-wip.29",
+    "prettier-eslint": "^9.0.0"
+  }
+}

@@ -1,0 +1,119 @@
+// -*- mode: javascript; tab-width: 2; indent-tabs-mode: nil -*-
+{
+	rest: {
+		migration: {
+			port: 3100,
+		},
+	},
+	spa: {
+		team: {
+			port: 3000,
+		},
+	},
+
+	crud: {
+	},
+
+	// dbs
+	mongoose: {
+   		uri: 'mongodb://127.0.0.1:27017/bank_shared?authSource=admin',
+	},
+
+	elasticsearch: {
+		deadTimeout: 100000,
+		keepAlive: true,
+		maxRetries: 10,
+		apiVersion: '7.2',
+		host: 'localhost',
+		port : 9200
+	},
+
+	elasticsearch6: {
+		deadTimeout: 100000,
+		keepAlive: true,
+		maxRetries: 10,
+		apiVersion: '7.2',
+		host: 'localhost',
+		port : 9200
+	},
+	/**
+	 * mongoDb connection setup
+	 * @type {Object}
+	*/
+	mongodb: {
+		url: 'mongodb://127.0.0.1:27017/bank_shared?authSource=admin',
+		host: '127.0.0.1',
+		port: 27017,
+	},
+
+	/**
+	* RabbitMQ Connection Settings
+	*/
+	amqp: {
+		user: 'guest',
+		pass: 'guest',
+		username: 'guest',
+		password: 'guest',
+		server: ['127.0.0.1'],
+		port: 5672,
+		hostname: 'localhost',
+	},
+
+	/**
+	 * EventStore settings definition
+	 * @type {Object}
+	 */
+	eventStore: {
+		type: 'mongodb',
+		dbName: '{{appName}}-eventstore',
+		eventsCollectionName: 'events',
+		snapshotsCollectionName: 'snapshots',
+		transactionsCollectionName: 'transactions',
+		positionsCollectionName: 'positions',
+		// additonal indexes to be added
+		indexes: [
+			{ 'payload.metadata.owner.customer': 1 },
+			{ 'payload.metadata.owner.account': 1 },
+		],
+		timeout: 10000,
+	},
+
+	/**
+	 * log level could be any of fatal, error, warn, info, debug, trace
+	 * @type {String}
+	 */
+	logLevel: 'info',
+
+	/**
+	* weather or not to log anything
+	* @type {Boolean}
+	*/
+	logEnabled: true,
+
+	runMode: 'debug',
+
+	/**
+	 * Denormalizer settings
+	 * @type {Object}
+	 */
+	denormalizers: {
+		system: {
+			type: 'main',
+			db: 'mongodb',
+			dbName: '{{appName}}-system-readmodels',
+			timeout: 10000,
+		},
+	},
+
+	/**
+	 * Saga settings
+	 * @type {Object}
+	 */
+	sagas: {
+		validation: {
+			type: 'mongodb',
+			dbName: '{{appName}}-sagas',
+			collectionName: '{{shortName}}'
+		},
+	},
+}

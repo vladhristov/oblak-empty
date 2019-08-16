@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"target": "es2018",
+		"lib": [
+			"es6",
+			"es7",
+			"es2018"
+		],
+		"moduleResolution": "node",
+		"allowSyntheticDefaultImports": true,
+		"checkJs": true,
+		"baseUrl": ".",
+		"paths": {
+			"lib/*" : ["lib/*"],
+			"oblak-data" : ["oblak-data.js"]
+		}
+	},
+	"exclude": ["node_modules", "lib"]
+}
